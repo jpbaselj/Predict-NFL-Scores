@@ -29,26 +29,27 @@ The primary dataset used in this project is "spreadspoke_scores.csv" from Kaggle
 The raw dataset consisted of 13,516 entries, but only 11,027 entries with complete betting data were used, focusing on predicting performance against the spreads. Various data preprocessing steps were applied, including the handling of incomplete weather data and encoding categorical variables. The distribution of home team performances against the spread was analyzed, and no significant trends in mean and standard deviation over time were observed.
 
 ### Data Preparation for Modeling
-To prepare the data for modeling, fields dependent on game results were removed. Categorical variables were encoded, and numeric data was scaled using StandardScaler from scikit-learn. A validation set for the 2022 NFL season was set aside for evaluating the trained models.
+To prepare the data for modeling, fields dependent on game results were removed, and numeric data was scaled using StandardScaler from scikit-learn. A validation set for the 2022 NFL season was set aside for evaluating the trained models.
 
 ### Modeling Approach
-Due to the nature of the data, a modified time series approach was used to train and evaluate the models. TimeSeriesSplit from scikit-learn was employed to create train/test splits. Two modeling approaches were explored:
+Due to the nature of the data, a modified time series approach was used to train and evaluate the models. TimeSeriesSplit from scikit-learn was employed to create train/test splits. Two modeling approaches were explored, and the following model types were evaluated for each:
 
-Discrete variable - Will the home team beat the spread?
-Logistic Regression Model
-Random Forest Classifier Model
-Continuous variable - By how many points will the home team beat or lose to the betting spread?
-Random Forest Regressor Model
-Linear Regressor Model
+##### Target as a Discrete variable - "Will the home team beat the spread?"
+- Logistic Regression Model
+- Random Forest Classifier Model
+##### Target as a Continuous variable - "By how many points will the home team beat or lose to the betting spread?"
+- Random Forest Regressor Model
+- Linear Regressor Model
 
 ### Modeling Results
 The models were evaluated based on accuracy, with the following results:
 
-Random Forest Classifier Accuracy: 0.551
-Random Forest Regressor Accuracy: 0.544
-Logistic Regression Model Accuracy: 0.523
-Linear Regressor Accuracy: 0.511
-The Random Forest Classifier was selected for further exploration. Attempting to place bets on the top 50% of game predictions did not significantly improve accuracy. The model was applied to the 2022 NFL season and achieved an accuracy of 51%, suggesting potential overfitting in the training data.
+* Random Forest Classifier Accuracy: 0.551
+* Random Forest Regressor Accuracy: 0.544
+* Logistic Regression Model Accuracy: 0.523
+* Linear Regressor Accuracy: 0.511
+  
+The Random Forest Classifier was selected for further hyperparameter tuning and evaluation. Attempting to place bets on the top 50% most confident game predictions did not significantly improve accuracy. The model was applied to predict the valiation set of games from 2022 NFL season and achieved an accuracy of 51%, suggesting potential overfitting in the training data.
 
 ### Conclusion
 The validation testing results indicate that the best model built from the dataset is likely not suitable for predicting NFL games and generating a profit. Predicting home team performance against the betting spread is a complex task, influenced by various factors beyond the dataset's scope. Future attempts could consider more sophisticated data, such as injury information, key personnel attributes, and team playstyle changes. Exploring advanced machine learning techniques, like neural networks, may also be valuable.
