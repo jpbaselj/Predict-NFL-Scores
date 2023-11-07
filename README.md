@@ -1,37 +1,28 @@
-# Predict-NFL-Scores
-Springboard Data Science course capstone 1 project
+# NFL Betting Outcome Prediction
+Springboard Data Science Course Capstone 1 Project
 
-
-NFL Betting Outcome Prediction
 Author: John (JP) Baselj
 
-Table of Contents
-1. Introduction
-2. Problem
-3. Data
-4. Data Acquisition, Processing, and Analysis
-5. Data Preparation for Modeling
-6. Modeling Approach
-7. Modeling Results
-8. Conclusion
 
+## Introduction
+This GitHub repository contains the code and documentation for a data science project aimed at predicting NFL betting outcomes. The project utilizes data available through Kaggle and Pro Football Reference to create a predictive model for how NFL teams will perform against the betting spread in a given game. Key factors considered in this analysis include teams' scoring history, game location, weather conditions, and more. The ultimate goal is to apply this model to future NFL games to potentially inform betting strategies.
 
-### Introduction
-This GitHub repository contains the code and documentation for a data science project aimed at predicting NFL betting outcomes. The project utilizes data available through Kaggle and Pro Football Reference to create a predictive model for how NFL teams will perform against the betting spread in a given game. The ultimate goal is to apply this model to future NFL games to potentially inform betting strategies.
+## Technologies and Tools
+- Python
+- Pandas
+- Scikit-Learn
+- Matplotlib and Seaborn
+- Jupyter Notebook
+- PCA
+- SimpleImputer
+- TimeSeriesSplit
+  
+## Data
+The primary dataset, "spreadspoke_scores.csv", covers NFL game records from 1966 to 2022. To streamline data representation, the "nfl_teams.csv" dataset was used to identify NFL franchises. Weather data was partially missing, with games lacking weather information assumed to have neutral conditions. The dataset, initially comprising 13,516 entries, was reduced to 11,027 entries with complete betting data. Various preprocessing steps were applied, including handling incomplete data fields and encoding categorical variables. 
 
-### Problem
-The problem addressed in this project is predicting the performance of NFL teams against the betting spread in a given game. Key factors considered in this analysis include teams' scoring history, game location, weather conditions, and more. The project aims to provide insights that can be used for betting on NFL games.
-
-### Data
-The primary dataset used in this project is "spreadspoke_scores.csv" from Kaggle, containing records of NFL games from 1966 to 2022. Additionally, the "nfl_teams.csv" dataset from Kaggle was used to identify NFL franchises and simplify the data for modeling purposes. Weather data was partially missing, and games with missing weather information were assumed to have neutral weather conditions.
-
-### Data Acquisition, Processing, and Analysis
-The raw dataset consisted of 13,516 entries, but only 11,027 entries with complete betting data were used, focusing on predicting performance against the spreads. Various data preprocessing steps were applied, including the handling of incomplete weather data and encoding categorical variables. The distribution of home team performances against the spread was analyzed, and no significant trends in mean and standard deviation over time were observed.
-
-### Data Preparation for Modeling
+## Data Preparation and Modeling
 To prepare the data for modeling, fields dependent on game results were removed, and numeric data was scaled using StandardScaler from scikit-learn. A validation set for the 2022 NFL season was set aside for evaluating the trained models.
 
-### Modeling Approach
 Due to the nature of the data, a modified time series approach was used to train and evaluate the models. TimeSeriesSplit from scikit-learn was employed to create train/test splits. Two modeling approaches were explored, and the following model types were evaluated for each:
 
 ##### Target as a Discrete variable - "Will the home team beat the spread?"
@@ -42,7 +33,7 @@ Due to the nature of the data, a modified time series approach was used to train
 - Linear Regressor Model
 
 ### Modeling Results
-The models were evaluated based on accuracy, with the following results:
+The preliminary models were evaluated based on accuracy, with the following results:
 
 * Random Forest Classifier Accuracy: 0.551
 * Random Forest Regressor Accuracy: 0.544
