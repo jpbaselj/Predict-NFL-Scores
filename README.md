@@ -5,7 +5,7 @@ Author: John (JP) Baselj
 ![NFL Team Logos](https://github.com/jpbaselj/Predict-NFL-Scores/blob/main/documentation/nfl-logos.jpeg)
 
 ## Introduction
-This GitHub repository contains the code and documentation for a data science project aimed at predicting NFL betting outcomes. The project utilizes data available through Kaggle and Pro Football Reference at [Kaggle Scores](https://www.kaggle.com/datasets/tobycrabtree/nfl-scores-and-betting-data?select=spreadspoke_scores.csv) to create a predictive model for how NFL teams will perform against the betting spread in a given game. Key factors considered in this analysis include teams' scoring history, game location, weather conditions, and more. The ultimate goal is to apply this model to future NFL games to potentially inform betting strategies.
+This GitHub repository contains the code and documentation for a data science project aimed at predicting NFL betting outcomes. The project utilizes data available through Kaggle and Pro Football Reference at [Kaggle Scores](https://www.kaggle.com/datasets/tobycrabtree/nfl-scores-and-betting-data?select=spreadspoke_scores.csv) to create a predictive model for how NFL teams will perform against the betting spread in a given game. Key factors considered in this analysis include teams' scoring history, game location, weather conditions, and more.
 
 ## Technologies and Tools
 - Python
@@ -18,7 +18,10 @@ This GitHub repository contains the code and documentation for a data science pr
 - TimeSeriesSplit
   
 ## Data
-The primary dataset, "spreadspoke_scores.csv", covers NFL game records from 1966 to 2022. To streamline data representation, the "nfl_teams.csv" dataset was used to identify NFL franchises. Weather data was partially missing, with games lacking weather information assumed to have neutral conditions. The dataset, initially comprising 13,516 entries, was reduced to 11,027 entries with complete betting data. Various preprocessing steps were applied, including handling incomplete data fields and encoding categorical variables. 
+The primary dataset, [spreadspoke_scores.csv](https://www.kaggle.com/datasets/tobycrabtree/nfl-scores-and-betting-data?select=spreadspoke_scores.csv), covers NFL game records from 1966 to 2022. To streamline data representation, the [nfl_teams.csv](https://www.kaggle.com/datasets/tobycrabtree/nfl-scores-and-betting-data?select=nfl_teams.csv) dataset was used to identify NFL franchises. 
+
+## [Data Wrangling Notebook](https://github.com/jpbaselj/Predict-NFL-Scores/blob/main/Cap2_1_data_wrangling.ipynb)
+Weather data was partially missing, with games lacking weather information assumed to have neutral conditions. The dataset, initially comprising 13,516 entries, was reduced to 11,027 entries with complete betting data. Various preprocessing steps were applied, including handling incomplete data fields and encoding categorical variables. 
 
 ## Data Preparation and Modeling
 To prepare the data for modeling, fields dependent on game results were removed, and numeric data was scaled using StandardScaler from scikit-learn. A validation set for the 2022 NFL season was set aside for evaluating the trained models.
