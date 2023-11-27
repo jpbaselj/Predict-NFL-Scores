@@ -25,9 +25,18 @@ The primary dataset, [spreadspoke_scores.csv](https://www.kaggle.com/datasets/to
 
 Weather data was partially missing, with games lacking weather information assumed to have neutral conditions. The dataset, initially comprising 13,516 entries, was reduced to 11,027 entries with complete betting data. Various preprocessing steps were applied, including handling incomplete data fields and encoding categorical variables. 
 
-## Data Preparation
+The scores dataset initially consisted of 44 different NFL teams, although based on domain knowledge we know that there have never been simultaneously more than 32 teams. The “nfl_teams.csv” dataset was used to identify NFL *franchises*, and compress teams that have changed names (such as the  Baltimore Colts franchise moving and rebranding to the Indianapolis Colts) to give each franchise a unique identifier. This simplified the data so that there would not be more than the true 32 teams for model encoding.
+
+
+## Exploratory Data Analysis
 [EDA Notebook](https://github.com/jpbaselj/Predict-NFL-Scores/blob/main/Cap2_2_EDA.ipynb)
 
+The data was analyzed to identify any clear trends in the target variable, team performance Against The betting Spread (ATS), and the distribution of all home team performances against the spread was found to be approximately normally distributed with a mean of about -0.14 points and standard deviation of about 12.7 points. 
+
+
+It was also investigated whether mean and standard deviation had trends over time (figure 2), which does not appear to be the case.
+
+## Data Preparation
 [Preprocessing Notebook](https://github.com/jpbaselj/Predict-NFL-Scores/blob/main/Cap2_3_preprocessing_and_data_development.ipynb)
 
 To prepare the data for modeling, fields dependent on game results were removed, and numeric data was scaled using StandardScaler from scikit-learn. A validation set for the 2022 NFL season was set aside for evaluating the trained models.
