@@ -27,6 +27,7 @@ Weather data was partially missing, with games lacking weather information assum
 
 ## Data Preparation
 [EDA Notebook](https://github.com/jpbaselj/Predict-NFL-Scores/blob/main/Cap2_2_EDA.ipynb)
+
 [Preprocessing Notebook](https://github.com/jpbaselj/Predict-NFL-Scores/blob/main/Cap2_3_preprocessing_and_data_development.ipynb)
 
 To prepare the data for modeling, fields dependent on game results were removed, and numeric data was scaled using StandardScaler from scikit-learn. A validation set for the 2022 NFL season was set aside for evaluating the trained models.
