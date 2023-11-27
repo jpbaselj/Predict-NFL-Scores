@@ -1,5 +1,5 @@
 # NFL Betting Outcome Prediction
-Springboard Data Science Course Capstone 1 Project
+Springboard Data Science Course Capstone Project
 
 Author: John (JP) Baselj
 
