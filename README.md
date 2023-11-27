@@ -1,7 +1,8 @@
 # NFL Betting Outcome Prediction
 Springboard Data Science Course Capstone Project
 
-Author: John (JP) Baselj
+Author: JP Baselj
+
 ![NFL Team Logos](https://github.com/jpbaselj/Predict-NFL-Scores/blob/main/documentation/nfl-logos.jpeg)
 
 ## Introduction
@@ -33,8 +34,11 @@ The scores dataset initially consisted of 44 different NFL teams, although based
 
 The data was analyzed to identify any clear trends in the target variable, team performance Against The betting Spread (ATS), and the distribution of all home team performances against the spread was found to be approximately normally distributed with a mean of about -0.14 points and standard deviation of about 12.7 points. 
 
+![](https://github.com/jpbaselj/Predict-NFL-Scores/blob/main/documentation/home_ATS_normal_curve.png)
 
-It was also investigated whether mean and standard deviation had trends over time (figure 2), which does not appear to be the case.
+It was also investigated whether mean and standard deviation had trends over time, which does not appear to be the case.
+
+![](https://github.com/jpbaselj/Predict-NFL-Scores/blob/main/documentation/home_ATS_trends.png)
 
 ## Data Preparation
 [Preprocessing Notebook](https://github.com/jpbaselj/Predict-NFL-Scores/blob/main/Cap2_3_preprocessing_and_data_development.ipynb)
@@ -44,7 +48,11 @@ To prepare the data for modeling, fields dependent on game results were removed,
 ## Modeling 
 [Modeling Notebook](https://github.com/jpbaselj/Predict-NFL-Scores/blob/main/Cap2_4_Modeling.ipynb)
 
-Due to the nature of the data, a modified time series approach was used to train and evaluate the models. TimeSeriesSplit from scikit-learn was employed to create train/test splits. Two modeling approaches were explored, and the following model types were evaluated for each:
+Due to the nature of the data, a modified time series approach was used to train and evaluate the models. TimeSeriesSplit from scikit-learn was employed to create train/test splits, visualized in the lower half of this comparison graphic:
+
+![Time Based Split](https://github.com/jpbaselj/Predict-NFL-Scores/blob/main/documentation/time_based_split.png)
+
+The following models were trained an evaluated, comparing the predictive power of the approaches of considering the target variable as a discrete variable vs a continuous variable:
 
 ##### Target as a Discrete variable - "Will the home team beat the spread?"
 - Logistic Regression Model
@@ -64,7 +72,7 @@ The preliminary models were evaluated based on accuracy, with the following resu
 The Random Forest Classifier was selected for further hyperparameter tuning and evaluation. Attempting to place bets on the top 50% most confident game predictions did not significantly improve accuracy. The model was applied to predict the valiation set of games from 2022 NFL season and achieved an accuracy of 51%, suggesting potential overfitting in the training data.
 
 ## Conclusion
-The validation testing results indicate that the best model built from the dataset is likely not suitable for predicting NFL games and generating a profit. Predicting home team performance against the betting spread is a complex task, influenced by various factors beyond the dataset's scope. Future attempts could consider more sophisticated data, such as injury information, key personnel attributes, and team playstyle changes. Exploring advanced machine learning techniques, like neural networks, may also be valuable.
+The validation testing results indicate that the best model built from the dataset is likely not suitable for predicting NFL games and generating a profit. Predicting performance against the betting spread is an inherently complex task, influenced by various factors beyond the dataset's narrow scope. Future iterations should consider more sophisticated data, such as injury information, key personnel attributes, and complex team play-style relationships.
 
 ## Project Report
 [Project Report PDF](https://github.com/jpbaselj/Predict-NFL-Scores/blob/main/Reports/Cap2_Final_Report.pdf)
