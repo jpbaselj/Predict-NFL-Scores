@@ -2,7 +2,7 @@
 Springboard Data Science Course Capstone Project
 
 Author: John (JP) Baselj
-![NFL Team Logos] (https://github.com/jpbaselj/Predict-NFL-Scores/blob/main/documentation/nfl-logos.jpeg)
+![NFL Team Logos](https://github.com/jpbaselj/Predict-NFL-Scores/blob/main/documentation/nfl-logos.jpeg)
 
 ## Introduction
 This GitHub repository contains the code and documentation for a data science project aimed at predicting NFL betting outcomes. The project utilizes data available through Kaggle and Pro Football Reference to create a predictive model for how NFL teams will perform against the betting spread in a given game. Key factors considered in this analysis include teams' scoring history, game location, weather conditions, and more. The ultimate goal is to apply this model to future NFL games to potentially inform betting strategies.
