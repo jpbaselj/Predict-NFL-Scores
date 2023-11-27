@@ -1,7 +1,6 @@
 # NFL Betting Outcome Prediction
 Springboard Data Science Course Capstone Project
 
-Author: JP Baselj
 
 ![NFL Team Logos](https://github.com/jpbaselj/Predict-NFL-Scores/blob/main/documentation/nfl-logos.jpeg)
 
