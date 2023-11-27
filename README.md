@@ -23,9 +23,9 @@ The primary dataset, [spreadspoke_scores.csv](https://www.kaggle.com/datasets/to
 ## Data Wrangling
 [Data Wrangling Notebook](https://github.com/jpbaselj/Predict-NFL-Scores/blob/main/Cap2_1_data_wrangling.ipynb)
 
-Weather data was partially missing, with games lacking weather information assumed to have neutral conditions. The dataset, initially comprising 13,516 entries, was reduced to 11,027 entries with complete betting data. Various preprocessing steps were applied, including handling incomplete data fields and encoding categorical variables. 
+Weather data was partially missing, with games lacking weather information assumed to have neutral conditions. The dataset, initially comprising 13,516 entries, was reduced to only the 11,027 entries which contain complete betting data. Various preprocessing steps were applied, including handling incomplete data fields and encoding categorical variables. 
 
-The scores dataset initially consisted of 44 different NFL teams, although based on domain knowledge we know that there have never been simultaneously more than 32 teams. The “nfl_teams.csv” dataset was used to identify NFL *franchises*, and compress teams that have changed names (such as the  Baltimore Colts franchise moving and rebranding to the Indianapolis Colts) to give each franchise a unique identifier. This simplified the data so that there would not be more than the true 32 teams for model encoding.
+The scores dataset initially consisted of 44 different NFL teams, although based on domain knowledge we know that there have never been simultaneously more than 32 teams. The nfl_teams dataset was used to identify NFL franchises and compress teams that have changed names (such as the  Baltimore Colts franchise moving and rebranding to the Indianapolis Colts) to give each *franchise* a unique identifier. This simplified the data so that there would not be more than the true 32 teams for model encoding.
 
 
 ## Exploratory Data Analysis
@@ -47,7 +47,7 @@ To prepare the data for modeling, fields dependent on game results were removed,
 ## Modeling 
 [Modeling Notebook](https://github.com/jpbaselj/Predict-NFL-Scores/blob/main/Cap2_4_Modeling.ipynb)
 
-Due to the nature of the data, a modified time series approach was used to train and evaluate the models. TimeSeriesSplit from scikit-learn was employed to create train/test splits, visualized in the lower half of this comparison graphic:
+Due to the recency-dependant nature of NFL performance data, a modified time series approach was used to train and evaluate the models. TimeSeriesSplit from scikit-learn was employed to create train/test splits, visualized in the lower half of this comparison graphic:
 
 ![Time Based Split](https://github.com/jpbaselj/Predict-NFL-Scores/blob/main/documentation/time_based_split.png)
 
@@ -71,7 +71,12 @@ The preliminary models were evaluated based on accuracy, with the following resu
 The Random Forest Classifier was selected for further hyperparameter tuning and evaluation. Attempting to place bets on the top 50% most confident game predictions did not significantly improve accuracy. The model was applied to predict the valiation set of games from 2022 NFL season and achieved an accuracy of 51%, suggesting potential overfitting in the training data.
 
 ## Conclusion
-The validation testing results indicate that the best model built from the dataset is likely not suitable for predicting NFL games and generating a profit. Predicting performance against the betting spread is an inherently complex task, influenced by various factors beyond the dataset's narrow scope. Future iterations should consider more sophisticated data, such as injury information, key personnel attributes, and complex team play-style relationships.
+The validation testing results indicate that the best model built from the dataset is likely not suitable for predicting NFL games and generating a profit. Predicting performance against the betting spread is an inherently complex task, influenced by various factors beyond the dataset's narrow scope. 
+
+In future iterations, I would consider improving predictive power by:
+* Including more sophisticated data such as injury information and complex team play-style relationships
+* Identifying and encoding key personnel attributes, such as a notably good or bad Quarterback
+* Removing the betting spread as an input to the model and instead predict true scoring, to the then be compared to betting spread if desired.
 
 ## Project Report
 [Project Report PDF](https://github.com/jpbaselj/Predict-NFL-Scores/blob/main/Reports/Cap2_Final_Report.pdf)
